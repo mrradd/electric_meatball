@@ -1,5 +1,7 @@
 {
     "openAi": {
-        "api_key": "your-api-key"
+        "api_key": "your-api-key",
+        "model": "ai-model",
+        "organization": "your-organization"
     }
 }

@@ -4,7 +4,6 @@ from RadApp import RadApp
 radAppInstance = RadApp().getInstance()
 
 def main():
-    radAppInstance.initialize()
-    radAppInstance.printSelf()
+    radAppInstance.run()
 
 main()
