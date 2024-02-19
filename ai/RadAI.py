@@ -25,7 +25,7 @@ class RadAI:
         with open("RadConfig.json") as json_data_file:
             self.__instance.configData = json.load(json_data_file)
         self.__instance.clazz_name = "RadAI"
-        self.__instance.client = OpenAI(api_key=self.__instance.configData[OPEN_AI][API_KEY])
+        self.__instance.client = OpenAI(api_key = self.__instance.configData[OPEN_AI][API_KEY])
 
     @classmethod
     def getInstance(self):
@@ -51,8 +51,8 @@ class RadAI:
         messages = RadAI.generateUserMessage(requestMessage)
 
         response = self.__instance.client.chat.completions.create(
-            model=model,
-            messages=messages
+            model = model,
+            messages = messages
         )
 
         return response

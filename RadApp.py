@@ -1,3 +1,5 @@
+import json
+from RadConstants import MESSAGE
 from ai.RadAI import RadAI
 
 class RadApp:
@@ -31,6 +33,19 @@ class RadApp:
         print(f"Class Name: {self.__instance.clazz_name}")
         self.__instance.ai_instance.printSelf()
 
+    @staticmethod
+    def readTestPrompt():
+        with open("TestPrompt.json") as json_data_file:
+            return json.load(json_data_file)
+
     def run(self):
         self.__instance.initialize()
-        self.__instance.ai_instance.sendUserRequest("Hello, how are you?")
+        prompt = RadApp.readTestPrompt()
+        response = self.__instance.ai_instance.sendUserRequest(requestMessage = prompt[MESSAGE])
+        RadApp.writeToFile("TestResponse2.txt", response.choices[0].message.content, "a")
+        print(response)
+
+    @staticmethod
+    def writeToFile(file_name, text, mode = "w"):
+        with open(file_name, mode) as file:
+            file.write(text)

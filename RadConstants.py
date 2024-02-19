@@ -1,6 +1,7 @@
 API_KEY = "apiKey"
 CONTENT = "content"
 JSON_OBJECT = "json_object"
+MESSAGE = "message"
 MODEL = "model"
 OPEN_AI = "openAI"
 ORGANIZATION = "organization"

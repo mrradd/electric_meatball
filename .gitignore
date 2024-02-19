@@ -1,1 +1,4 @@
 RadConfig.json
+*.txt
+*.pyc
+__pychache__/
