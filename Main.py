@@ -1,6 +1,10 @@
 #This is the main file for the project which will be used to run the project.
+from RadApp import RadApp
+
+radAppInstance = RadApp().getInstance()
 
 def main():
-    print("Hello World")
+    radAppInstance.initialize()
+    radAppInstance.printSelf()
 
 main()
