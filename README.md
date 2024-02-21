@@ -1,9 +1,6 @@
 # RadAPI
-A project.
 
-Make a copy of RadConfig.template.json and name it RadConfig.json, change the values as needed.
-
-DO NOT COMMIT RadConfig.json! 
+Playing with Python and ChatGPT. More info coming some time in the future!
 
 Modules Used
 - OpenAI

@@ -1,9 +1,11 @@
-#This is the main file for the project which will be used to run the project.
-from RadApp import RadApp
+#This is the main file for the project which is used to run the project.
+from EMApp import EMApp
 
-radAppInstance = RadApp().getInstance()
+EMAppInstance = EMApp().getInstance()
 
 def main():
-    radAppInstance.run()
-
+    print("~STARTING Electric Meatball...~")
+    EMAppInstance.initialize()
+    EMAppInstance.run()
+    print("~EXITING Electric Meatball...~")
 main()

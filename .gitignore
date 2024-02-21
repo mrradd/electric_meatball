@@ -1,4 +1,4 @@
 RadConfig.json
-*.txt
+EMConfig.json
 *.pyc
 __pychache__/
