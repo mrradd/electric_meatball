@@ -8,4 +8,5 @@ def main():
     EMAppInstance.initialize()
     EMAppInstance.run()
     print("~EXITING Electric Meatball...~")
+
 main()

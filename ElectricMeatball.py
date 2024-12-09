@@ -70,8 +70,8 @@ class ElectricMeatball:
         response = self.__instance.sendUserRequest(prompt)
 
         print("~Writing response to answer file.~")
-        promptTextToSave = "\nPrompt:\n" + prompt + "\n---\n"
-        answerTextToSave = "\nAnswer:\n" + response.choices[0].message.content
+        promptTextToSave = "\nPrompt:\n------\n\n" + prompt + "\n\n==========\n"
+        answerTextToSave = "\nAnswer:\n------\n\n" + response.choices[0].message.content
         textToSave = "\n------RESPONSE START------\n" + promptTextToSave + answerTextToSave + "\n------RESPONSE END------\n"
         writeToFile(self.__instance.configData[RESPONSE_ANSWER_FILE_NAME], textToSave, "a")
 
