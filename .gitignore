@@ -2,3 +2,5 @@ RadConfig.json
 EMConfig.json
 *.pyc
 __pychache__/
+answerTextOnly.txt
+prompt.txt

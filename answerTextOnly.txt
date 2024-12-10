@@ -18,3 +18,37 @@ Give me one Wrong joke answer for 2+2.
 Answer:
 Chicken!
 ------RESPONSE END------
+
+------RESPONSE START------
+
+Prompt:
+------
+
+Tell me a joke.
+
+==========
+
+Answer:
+------
+
+Why did the scarecrow win an award? 
+
+Because he was outstanding in his field!
+------RESPONSE END------
+
+------RESPONSE START------
+
+Prompt:
+------
+
+Tell me a joke.
+
+==========
+
+Answer:
+------
+
+Why did the scarecrow win an award? 
+
+Because he was outstanding in his field!
+------RESPONSE END------
