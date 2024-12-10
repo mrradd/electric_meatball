@@ -4,11 +4,11 @@
 
 Just a simple prompt and answer system made with Python and OpenAI's Python library.
 
-Copy the EMConfig.template.json file, and rename the copy to EMConfig.json. Then add your OpenAI token, and 
-model you wish to use.
+Copy the ```EMConfig.template.json``` file, and rename the copy to ```EMConfig.json```. Then add your OpenAI token, and 
+model you wish to use. You may also customize the file names you wish to read the prompt from and write responses to.
 
 ```
-//Example EConfig.json
+//Example EMConfig.json
 {
     "openAi": {
         "api_key": "your-api-key", //The API Key from OpenAI.
