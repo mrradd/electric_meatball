@@ -47,3 +47,21 @@ def writeToFile(file_name: str, text: str, mode: str = "w"):
     """
     with open(file_name, mode) as file:
         file.write(text)
+
+def insertTextAtBeginningOfFile(file_name: str, text_to_insert: str):
+    """
+    insertTextAtBeginningOfFile
+    ---
+    Appends the given text to the beginning of the file with the given file_name.
+
+    Args:
+        file_name (str) - The name of the file to write to.\n
+        text (str) - The text to write to the file.\n
+    """
+    with open(file_name, 'r') as file:
+        original_contents = file.read()
+
+    new_contents = text_to_insert + "\n" + original_contents
+    
+    with open(file_name, 'w') as file:
+        file.write(new_contents)

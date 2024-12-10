@@ -1,5 +1,5 @@
 from openai import OpenAI
-from EMUtils import deserializeJsonFromFile, readFile, writeToFile
+from EMUtils import deserializeJsonFromFile, insertTextAtBeginningOfFile, readFile, writeToFile
 from EMConstants import API_KEY, CONTENT, MODEL, OPEN_AI, PROMPT_FILE_NAME, RESPONSE_ANSWER_FILE_NAME, ROLE, USER, EM_CONFIG_FILE
 
 class ElectricMeatball:
@@ -70,10 +70,10 @@ class ElectricMeatball:
         response = self.__instance.sendUserRequest(prompt)
 
         print("~Writing response to answer file.~")
-        promptTextToSave = "\nPrompt:\n------\n\n" + prompt + "\n\n==========\n"
-        answerTextToSave = "\nAnswer:\n------\n\n" + response.choices[0].message.content
-        textToSave = "\n------RESPONSE START------\n" + promptTextToSave + answerTextToSave + "\n------RESPONSE END------\n"
-        writeToFile(self.__instance.configData[RESPONSE_ANSWER_FILE_NAME], textToSave, "a")
+        prompt_text_to_save = "\nPrompt:\n------\n\n" + prompt + "\n\n==========\n"
+        answer_text_to_save = "\nAnswer:\n------\n\n" + response.choices[0].message.content
+        text_to_save = "\n------RESPONSE START------\n" + prompt_text_to_save + answer_text_to_save + "\n------RESPONSE END------\n"
+        insertTextAtBeginningOfFile(self.__instance.configData[RESPONSE_ANSWER_FILE_NAME], text_to_save)
 
         return response
 

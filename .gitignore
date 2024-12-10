@@ -4,3 +4,5 @@ EMConfig.json
 __pychache__/
 answerTextOnly.txt
 prompt.txt
+gptAnswers.txt
+userPrompt.txt
