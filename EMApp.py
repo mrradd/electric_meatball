@@ -53,6 +53,6 @@ class EMApp:
 
     def run(self):
         response = self.__instance.ai_instance.performRequestFromPromptFileAndWriteToAnswerFile()
-        print("~Full response...~\n\n")
-        print(response)
-        print("\n\n~FINISHED~\n")
+        # print("~Full response...~\n\n")
+        # print(response)
+        print("\n~FINISHED~")
