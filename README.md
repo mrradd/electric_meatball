@@ -15,16 +15,14 @@ model you wish to use. You may also customize the file names you wish to read th
         "model": "gpt-4o-mini", //Can be any ChatGPT model.
         "organization": "your-organization" //Your super cool organization's name.
     },
-    "promptFileName": "prompt.txt", //The name of the text file to read the prompt from. Must be a text file, and in the project root dir.
-    "responseAnswerFileName": "answerTextOnly.txt" //The name of the text file where answers will be appended to. Also in the root dir.
+    "promptFileName": "prompt.txt", //The name of the text file to read the prompt from. Must be a text file, and in the project's root directory.
+    "responseAnswerFileName": "answerTextOnly.txt" //The name of the text file where answers will be appended to. Must be a text file and in the project's root directory.
 }
 ```
 
-Both the "prompt file" and the "response answer file" need to be created before execution, or the program will likely break.
-
 The program expects only one "prompt" in the prompt file to be read at a time. The "response answer file" is always appended to.
 
-Sample response in the answer file.
+Sample of a single response in the answer file.
 ```
 ------RESPONSE START------
 
