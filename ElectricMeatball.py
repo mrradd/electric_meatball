@@ -65,15 +65,15 @@ class ElectricMeatball:
         """
         print("~Reading prompt file.~")
         prompt = readFile(file_name = self.__instance.configData[PROMPT_FILE_NAME])
-
         print("~Sending the request.~")
         response = self.__instance.sendUserRequest(prompt)
 
         print("~Writing response to answer file.~")
-        prompt_text_to_save = "\nPrompt:\n------\n\n" + prompt + "\n\n==========\n"
-        answer_text_to_save = "\nAnswer:\n------\n\n" + response.choices[0].message.content
+        prompt_text_to_save = "Prompt:\n------\n" + prompt + "\n\n--------\n"
+        answer_text_to_save = "Answer:\n------\n" + response.choices[0].message.content
         text_to_save = "\n------RESPONSE START------\n" + prompt_text_to_save + answer_text_to_save + "\n------RESPONSE END------\n"
-        insertTextAtBeginningOfFile(self.__instance.configData[RESPONSE_ANSWER_FILE_NAME], text_to_save)
+        derp = text_to_save + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+        insertTextAtBeginningOfFile(self.__instance.configData[RESPONSE_ANSWER_FILE_NAME], derp)
 
         return response
 
@@ -97,7 +97,6 @@ class ElectricMeatball:
         """
         model = self.__instance.configData[OPEN_AI][MODEL]
         messages = self.generateUserMessage(requestMessage)
-
         response = self.__instance.client.chat.completions.create(
             model = model,
             messages = messages

@@ -7,7 +7,8 @@ Just a simple prompt and answer system made with Python and OpenAI's Python libr
 To use the program run the Main.py file in your terminal; e.g. ```python ./Main.py```.
 
 Setup the program by copying the ```EMConfig.template.json``` file, and rename the copy to ```EMConfig.json```. Then add your OpenAI token, and 
-model you wish to use. You may also customize the file names you wish to read the prompt from and write responses to.
+model you wish to use. You must add files ```gptAnswers.txt``` and ```userPrompt.txt``` to the project's root directory. You may use files
+with custom names, but you will need to change the config file.
 
 ```
 //Example EMConfig.json
@@ -17,8 +18,8 @@ model you wish to use. You may also customize the file names you wish to read th
         "model": "gpt-4o-mini", //Can be any ChatGPT model.
         "organization": "your-organization-name" //Your super cool organization's name.
     },
-    "promptFileName": "prompt.txt", //The name of the text file to read the prompt from. Must be a text file, and in the project's root directory.
-    "responseAnswerFileName": "answerTextOnly.txt" //The name of the text file where answers will be appended to. Must be a text file and in the project's root directory.
+    "promptFileName": "userPrompt.txt", //The name of the text file to read the prompt from. Must be a text file, and in the project's root directory.
+    "responseAnswerFileName": "gptAnswers.txt" //The name of the text file where answers will be appended to. Must be a text file and in the project's root directory.
 }
 ```
 

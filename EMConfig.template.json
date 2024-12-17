@@ -4,6 +4,6 @@
         "model": "ai-model",
         "organization": "your-organization"
     },
-    "promptFileName": "prompt.txt",
-    "responseAnswerFileName": "answerTextOnly.txt"
+    "promptFileName": "userPrompt.txt",
+    "responseAnswerFileName": "gptAnswers.txt"
 }
