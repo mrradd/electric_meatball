@@ -72,12 +72,12 @@ class ElectricMeatball:
         response = self.__instance.sendUserRequest(prompt)
 
         print("~Writing response to answer file.~")
+        print("~"+ request_time +"~")
         prompt_text_to_save = "Prompt:\n------\n" + prompt + "\n\n--------\n"
         answer_text_to_save = "Answer:\n------\n" + response.choices[0].message.content
         text_to_save = "\n------RESPONSE START------ "+ request_time +"\n" + prompt_text_to_save + answer_text_to_save + "\n------RESPONSE END------\n"
         derp = text_to_save + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
         insertTextAtBeginningOfFile(self.__instance.configData[RESPONSE_ANSWER_FILE_NAME], derp)
-
         return response
 
     def printSelf(self):
