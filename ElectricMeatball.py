@@ -1,4 +1,5 @@
 from openai import OpenAI
+from datetime import datetime
 from EMUtils import deserializeJsonFromFile, insertTextAtBeginningOfFile, readFile, writeToFile
 from EMConstants import API_KEY, CONTENT, MODEL, OPEN_AI, PROMPT_FILE_NAME, RESPONSE_ANSWER_FILE_NAME, ROLE, USER, EM_CONFIG_FILE
 
@@ -65,13 +66,15 @@ class ElectricMeatball:
         """
         print("~Reading prompt file.~")
         prompt = readFile(file_name = self.__instance.configData[PROMPT_FILE_NAME])
+        
         print("~Sending the request.~")
+        request_time = str(datetime.now())
         response = self.__instance.sendUserRequest(prompt)
 
         print("~Writing response to answer file.~")
         prompt_text_to_save = "Prompt:\n------\n" + prompt + "\n\n--------\n"
         answer_text_to_save = "Answer:\n------\n" + response.choices[0].message.content
-        text_to_save = "\n------RESPONSE START------\n" + prompt_text_to_save + answer_text_to_save + "\n------RESPONSE END------\n"
+        text_to_save = "\n------RESPONSE START------ "+ request_time +"\n" + prompt_text_to_save + answer_text_to_save + "\n------RESPONSE END------\n"
         derp = text_to_save + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
         insertTextAtBeginningOfFile(self.__instance.configData[RESPONSE_ANSWER_FILE_NAME], derp)
 
