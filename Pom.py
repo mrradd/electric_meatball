@@ -18,14 +18,14 @@ def timer(minutes):
         time_format = '{:02d}:{:02d}'.format(mins, secs)
         print(time_format, end='\r')   # Display countdown on the same line
         time.sleep(1)
-    
-    print("Time's up!           ")
+
+    print("Time's up!")
     beep()
 
 # Set the timer for a specified number of minutes
 if __name__ == "__main__":
     try:
-        minutes = int(input("Enter the time in minutes: "))
+        minutes = int(input("Enter Pomodoro session time in minutes: "))
         timer(minutes)
     except ValueError:
         print("Please enter a valid number.")

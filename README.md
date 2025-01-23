@@ -2,6 +2,7 @@
 
 *An electric meatball is a silly name for the human brain.*
 
+***Main.py***
 Just a simple prompt and answer system made with Python and OpenAI's Python library.
 
 To use the program run the Main.py file in your terminal; e.g. ```python ./Main.py```.
@@ -45,5 +46,9 @@ Because he was outstanding in his field!
 ------RESPONSE END------
 ```
 
-Modules Used
+***Pom.py***
+A timer I use for Pomodoro focus sessions. After executing it, it will ask you for an amount of time in minutes. This will set the timer,
+and start the clock. When the timer runs out, the script will make the system beep for 2 seconds denoting the session is over.
+
+***Modules Used In the Project***
 - OpenAI ```python -m pip install openai``` https://github.com/openai/openai-python
