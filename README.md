@@ -46,4 +46,4 @@ Because he was outstanding in his field!
 ```
 
 Modules Used
-- OpenAI ```pipx install openai```
+- OpenAI ```python -m pip install openai``` https://github.com/openai/openai-python
