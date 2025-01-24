@@ -2,10 +2,11 @@ import time
 import os
 import platform
 
+# TODO CH  ALLOW FOR SETTING A DEFAULT TIME IN THE CONFIGURATION.
 def beep():
     if platform.system() == "Windows":
         import winsound
-        winsound.Beep(1000, 2000)  # Frequency (Hz), Duration (ms)
+        winsound.Beep(500, 2000)  # Frequency (Hz), Duration (ms)
     else:
         os.system('echo -e "\a"')  # This may not work on all systems
 
@@ -25,7 +26,8 @@ def timer(minutes):
 # Set the timer for a specified number of minutes
 if __name__ == "__main__":
     try:
-        minutes = int(input("Enter Pomodoro session time in minutes: "))
+        minutes = int(input("Enter Pomodoro time in minutes: "))
         timer(minutes)
     except ValueError:
-        print("Please enter a valid number.")
+        print("Defaulting to 30 minutes.")
+        timer(30)
