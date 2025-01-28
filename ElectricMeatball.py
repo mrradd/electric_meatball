@@ -1,6 +1,6 @@
 from openai import OpenAI
 from datetime import datetime
-from EMUtils import deserializeJsonFromFile, insertTextAtBeginningOfFile, readFile, writeToFile
+from FileUtils import deserializeJsonFromFile, insertTextAtBeginningOfFile, readFile, writeToFile
 from EMConstants import API_KEY, CONTENT, MODEL, OPEN_AI, PROMPT_FILE_NAME, RESPONSE_ANSWER_FILE_NAME, ROLE, USER, EM_CONFIG_FILE
 
 class ElectricMeatball:

@@ -1,6 +1,6 @@
 import json
 from EMConstants import EM_CONFIG_FILE, MESSAGE, PROMPT_FILE_NAME, RESPONSE_ANSWER_FILE_NAME
-from EMUtils import deserializeJsonFromFile, writeToFile, readFile
+from FileUtils import deserializeJsonFromFile, writeToFile, readFile
 from ElectricMeatball import ElectricMeatball
 
 class EMApp:

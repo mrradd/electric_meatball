@@ -1,6 +1,7 @@
 import time
 import os
 import platform
+from datetime import datetime
 
 # TODO CH  ALLOW FOR SETTING A DEFAULT TIME IN THE CONFIGURATION.
 def beep():
@@ -10,9 +11,15 @@ def beep():
     else:
         os.system('echo -e "\a"')  # This may not work on all systems
 
+def printFormattedDateTimeNow()
+    now = datetime.now()
+    formatted_datetime = now.strftime("Started: %Y-%m-%d %H:%M:%S")
+    print(formatted_datetime)    
+
 def timer(minutes):
     total_seconds = minutes * 60
-    print(f"Timer set for {minutes} minutes.")
+    print(f"Timer set for {minutes} minutes.")    
+    printFormattedDateTimeNow()
     
     for remaining in range(total_seconds, 0, -1):
         mins, secs = divmod(remaining, 60)
@@ -21,7 +28,9 @@ def timer(minutes):
         time.sleep(1)
 
     print("Time's up!")
+    printFormattedDateTimeNow()
     beep()
+
 
 # Set the timer for a specified number of minutes
 if __name__ == "__main__":
@@ -29,5 +38,5 @@ if __name__ == "__main__":
         minutes = int(input("Enter Pomodoro time in minutes: "))
         timer(minutes)
     except ValueError:
-        print("Defaulting to 30 minutes.")
+        # Defaulting to 30 minutes, because that's a normal session for me.
         timer(30)
