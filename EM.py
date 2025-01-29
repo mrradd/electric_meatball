@@ -1,4 +1,4 @@
-#This is the main file for the project which is used to run the project.
+#This is the main file for the project which is used to run the EMApp.
 from EMApp import EMApp
 
 EMAppInstance = EMApp().getInstance()

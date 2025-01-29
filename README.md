@@ -66,6 +66,9 @@ To use the program run the Pom.py file in your terminal; e.g. ```python Pom.py``
 
 ### TODOs
 - Allow for setting Pom's default timer value in the config file.
+- Allow user to press a key to quit Pom.
+- Allow user to press a key to pause/resume Pom.
+- Save Pom session info to a JSON file for future review.
 - Create a setup script that when run adds all files needed for the project to run.
 - Allow for "conversations" with ChatGPT. Currently each prompt is treated as separate with no
 context.
