@@ -1,7 +1,7 @@
 from openai import OpenAI
 from datetime import datetime
 from FileUtils import deserializeJsonFromFile, insertTextAtBeginningOfFile, readFile, writeToFile
-from EMConstants import API_KEY, CONTENT, MODEL, OPEN_AI, PROMPT_FILE_NAME, RESPONSE_ANSWER_FILE_NAME, ROLE, USER, EM_CONFIG_FILE
+from EMConstants import API_KEY, CONTENT, MODEL, OPEN_AI, PROMPT_FILE_NAME, RESPONSE_ANSWER_FILE_NAME, ROLE, USER, EM_CONFIG_FILE, WRAP_TEXT_PROMPT
 
 class ElectricMeatball:
     """
@@ -65,7 +65,9 @@ class ElectricMeatball:
             dict: The response from the OpenAI chat model.
         """
         print("~Reading prompt file.~")
+
         prompt = readFile(file_name = self.__instance.configData[PROMPT_FILE_NAME])
+        prompt = prompt
         
         print("~Sending the request.~")
         request_time = str(datetime.now())

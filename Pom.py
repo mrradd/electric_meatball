@@ -15,21 +15,21 @@ def beep():
     else:
         os.system('echo -e "\a"')  # This may not work on all systems
 
-def printFormattedDateTimeNow():
-    now = datetime.now()
-    formatted_datetime = now.strftime("Started: %Y-%m-%d %H:%M:%S")
-    print(formatted_datetime)    
-
 def getConfigProperty(propertyName):
     try: 
         return configData[DEFAULT_POM_TIME_MINUTES]
     except Exception:
         print("~~~ERROR - getConfigProperty()~~~ Woopsy! Couldn't get the property for some reason.")
 
+def getFormattedDateTimeNow():
+    now = datetime.now()
+    formatted_datetime = now.strftime("%Y-%m-%d %H:%M:%S")
+    return formatted_datetime
+
 def timer(minutes):
     total_seconds = minutes * 60
     print(f"Timer set for {minutes} minutes.")    
-    printFormattedDateTimeNow()
+    print(f"Started: {getFormattedDateTimeNow()}")
 
     for remaining in range(total_seconds, 0, -1):
         mins, secs = divmod(remaining, 60)
@@ -38,7 +38,7 @@ def timer(minutes):
         time.sleep(1)
 
     print("Time's up!")
-    printFormattedDateTimeNow()
+    print(f"Ended: {getFormattedDateTimeNow()}")
     beep()
 
 # Set the timer for a specified number of minutes
