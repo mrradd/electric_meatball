@@ -67,7 +67,6 @@ class ElectricMeatball:
         print("~Reading prompt file.~")
 
         prompt = readFile(file_name = self.__instance.configData[PROMPT_FILE_NAME])
-        prompt = prompt
         
         print("~Sending the request.~")
         request_time = str(datetime.now())

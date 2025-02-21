@@ -3,3 +3,4 @@ EMConfig.json
 *.pyc
 __pychache__/
 *.txt
+http_req_config.json

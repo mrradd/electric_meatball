@@ -1,0 +1,6 @@
+BODY = "body"
+HTTP_REQ_CONFIG_FILE = "http_req_config.json"
+URL = "url"
+VERB = "verb"
+DATA_DUMP_FILE_PATH = "data_dump_file_path"
+PRETTY_JSON_INDENT = "pretty_json_indent"
