@@ -1,4 +1,4 @@
-# Electric Meatbal
+# Electric Meatball
 
 *An electric meatball is a silly name for the human brain.*
 
@@ -101,6 +101,11 @@ To use the program run the ```http_req.py``` file in your terminal; e.g. ```pyth
 - Requests - https://requests.readthedocs.io/en/latest
   - ```python -m pip install requests```
 
+### Style choices
+- A line of code should end at 100 columns regardless of how many indents there are. This is
+because it keeps it easy to work on with one screen and to review in split windows as there is
+little chance for any horizontal overflow. Keep in mind this isn't a *hard* rule, but a
+guideline.
 
 ### TODOs
 - Allow for setting Pom's default timer value in the config file.
