@@ -26,7 +26,7 @@ def do_http_request(config_profile_name):
     http_response = handle_request(config_data[config_profile_name])
 
     file_path = config_data[DATA_DUMP_FILE_PATH]
-    request_delimiter = get_request_delimiter(config_profile_name)
+    request_delimiter = response_dump_delimiter(config_profile_name)
 
     print(http_response.status_code)
     insertTextAtEndOfFile(file_path, request_delimiter)
@@ -63,7 +63,7 @@ def handle_request(profile_object):
     - `profile_object` (object): The object containing information about the request to 
     perform.
   ---
-  returns: The response from the HTTP request.
+  returns: `string` - The response from the HTTP request.
   """
   http_response = ""
   try:
@@ -82,9 +82,17 @@ def handle_request(profile_object):
 
 ###################################################################################################
 
-def get_request_delimiter(config_profile_name):
+def response_dump_delimiter(config_profile_name):
   """
-  
+  response_dump_delimiter
+  ---
+  Creates a delimiter for separating the request responses in the dump file.
+  ---
+  params:
+    - `config_profile_name` (string): Name of the profile the response if from.
+    perform.
+  ---
+  returns: `string` - The delimiter to write to the file.
   """
   return "~~~~~~~~~~~~~~~~~~~~| " + config_profile_name + " | " + str(datetime.now()) + " |~~~~~~~~~~~~~~~~~~~~"
 
