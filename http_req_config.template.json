@@ -1,9 +1,12 @@
 {
     "data_dump_file_path": "../electric_meatball/http_req_dumps/http_data_req_dump.txt",
     "pretty_json_indent": 2,
-    "get_thing" : {
-        "verb": "get",
-        "url": "https://google.com"
+    "test_post" : {
+        "verb": "post",
+        "url": "http://localhost:3000/test/posttest",
+        "body": {
+            "name": "Cloud Strife"
+        }
     },
     "get_other_thing" : {
         "verb": "get",

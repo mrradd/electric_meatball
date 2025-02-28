@@ -70,8 +70,8 @@ configurability.
 To start using this, copy the file ```http_request_config.template.json``` and rename it to
 ```http_request_config.json```, then customize it as needed. DO NOT COMMIT THIS FILE!!!!
 
-To use the script to run a "request profile", you will need to modify
-one line of code in ```http_req.py``` located near the bottom of the file.
+To use the script to run a "request profile", you will need to modify one line of code in
+```http_req.py``` located near the top of the file.
 - ```profile_to_run = "get_thing"```
   - Change the value of ```profile_to_run``` to whatever your profile is you wish to run.
 
