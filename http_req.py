@@ -21,29 +21,19 @@ def do_http_request(config_profile_name):
     for the request.
   """
   try:
-    configData = deserializeJsonFromFile(HTTP_REQ_CONFIG_FILE)
-    request_profile = config_profile_name
+    config_data = deserializeJsonFromFile(HTTP_REQ_CONFIG_FILE)
 
-    url = configData[request_profile][URL]
-    verb = configData[request_profile][VERB] #post, delete, push, etc...
-    file_path = configData[DATA_DUMP_FILE_PATH]
-    json_indent = configData[PRETTY_JSON_INDENT]
+    http_response = handle_request(config_data[config_profile_name])
 
-    verb = verb.lower()
-    if verb == GET.lower() :
-      http_response = requests.get(url)
-    if verb == POST.lower() :
-      http_response = requests.post(url, None, configData[request_profile][BODY])
-    else :
-      print("[" + verb + "] is not supported.\nExiting")
-      sys.exit()
-
-    request_delimiter = "~~~~~~~~~~~~~~~~~~~~| " + request_profile + " | " + str(datetime.now()) + " |~~~~~~~~~~~~~~~~~~~~"
+    file_path = config_data[DATA_DUMP_FILE_PATH]
+    request_delimiter = get_request_delimiter(config_profile_name)
 
     print(http_response.status_code)
     insertTextAtEndOfFile(file_path, request_delimiter)
+    
+    #This writes pretty printed json to the dump file.
     insertTextAtEndOfFile(
-      file_path, json.dumps(http_response.json(), indent=json_indent) #This pretty prints the json.
+      file_path, json.dumps(http_response.json(), indent=config_data[PRETTY_JSON_INDENT])
     )
     print("Data written to [" + file_path +"]")
 
@@ -89,6 +79,14 @@ def handle_request(profile_object):
     return http_response
   except Exception as e:
     raise SystemExit(e)
+
+###################################################################################################
+
+def get_request_delimiter(config_profile_name):
+  """
+  
+  """
+  return "~~~~~~~~~~~~~~~~~~~~| " + config_profile_name + " | " + str(datetime.now()) + " |~~~~~~~~~~~~~~~~~~~~"
 
 ###################################################################################################
 
