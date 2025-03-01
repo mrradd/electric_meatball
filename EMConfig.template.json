@@ -6,5 +6,6 @@
         "organization": "your-organization"
     },
     "promptFileName": "userPrompt.txt",
-    "responseAnswerFileName": "gptAnswers.txt"
+    "responseAnswerFileName": "../electric_meatball/gpt_answers/gptAnswers.txt",
+    "chatFileName": "../electric_meatball/gpt_chats/chat.json"
 }
