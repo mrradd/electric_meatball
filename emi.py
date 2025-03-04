@@ -17,6 +17,5 @@ def generate_image(thePrompt):
   )
   print(response.data[0].url)
 
-prompt = "Make a splash screen image for an app called 'Here For You'. The name of the app should be in the image. "
-prompt = prompt + "The app name should be at the top of the image. It should be a beautiful sunset."
+prompt = "prompt goes here"
 generate_image(prompt)
