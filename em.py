@@ -31,20 +31,20 @@ def send_request_and_write_to_file():
         dict: The response from the OpenAI chat model.
     """
     print("~Reading prompt file.~")
-
     prompt = readFile(file_name = config_data[PROMPT_FILE_NAME])
+    answer_file_name = config_data[RESPONSE_ANSWER_FILE_NAME]
     
     print("~Sending the request.~")
     request_time = str(datetime.now())
     response = send_user_request()
 
-    print("~Writing response to answer file.~")
+    print("~Writing response to file, '" + answer_file_name + "'~")
     print("~"+ request_time +"~")
     prompt_text_to_save = "Prompt:\n------\n" + prompt + "\n\n--------\n"
     answer_text_to_save = "Answer:\n------\n" + response.choices[0].message.content
     text_to_save = "\n------RESPONSE START------ "+ request_time +"\n" + prompt_text_to_save + answer_text_to_save + "\n------RESPONSE END------\n"
-    derp = text_to_save + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-    insertTextAtBeginningOfFile(config_data[RESPONSE_ANSWER_FILE_NAME], derp)
+    all_text = text_to_save + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+    insertTextAtBeginningOfFile(answer_file_name, all_text)
     return response
 
 def send_user_request():
