@@ -7,5 +7,9 @@
     },
     "promptFileName": "userPrompt.txt",
     "responseAnswerFileName": "../electric_meatball/gpt_answers/gptAnswers.txt",
-    "chatFileName": "../electric_meatball/gpt_chats/chat.json"
+    "chatFileName": "../electric_meatball/gpt_chats/chat.json",
+    "imageModel": "dall-e-3",
+    "imageDimensions": "1024x1024",
+    "imageQuality": "standard",
+    "numberOfImagesToGenerate": 1 
 }

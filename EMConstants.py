@@ -1,8 +1,11 @@
 API_KEY = "api_key"
 CONTENT = "content"
 EM_CONFIG_FILE = "EMConfig.json"
+IMAGE_DIMENSIONS = "imageDimensions"
+IMAGE_MODEL = "imageModel"
+IMAGE_QUALITY = "imageQuality"
 JSON_OBJECT = "json_object"
-WRAP_TEXT_PROMPT = "Limit the character count of each row to 150 characters and wrap the text after by whole word."
+NUMBER_OF_IMAGES_TO_GENERATE = "numberOfImagesToGenerate"
 MESSAGE = "message"
 MODEL = "model"
 OPEN_AI = "openAi"
@@ -12,3 +15,6 @@ RESPONSE_ANSWER_FILE_NAME = "responseAnswerFileName"
 ROLE = "role"
 TYPE = "type"
 USER = "user"
+
+
+
