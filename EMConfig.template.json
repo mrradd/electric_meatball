@@ -11,5 +11,6 @@
     "imageModel": "dall-e-3",
     "imageDimensions": "1024x1024",
     "imageQuality": "standard",
-    "numberOfImagesToGenerate": 1 
+    "numberOfImagesToGenerate": 1,
+    "imageUrlDumpFile": "imgDump.txt"
 }
