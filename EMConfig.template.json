@@ -1,16 +1,17 @@
 {
-    "defaultPomTimeMinutes": 30,
     "openAi": {
         "api_key": "your-api-key",
         "model": "ai-model",
         "organization": "your-organization"
     },
-    "promptFileName": "userPrompt.txt",
-    "responseAnswerFileName": "../electric_meatball/gpt_answers/gptAnswers.txt",
-    "chatFileName": "../electric_meatball/gpt_chats/chat.json",
-    "imageModel": "dall-e-3",
+    "chatFileName": "../electric_meatball/gpt_chats/gpt_chat.json",
+    "defaultPomTimeMinutes": 30,
+    "httpReqFileName": "../electric_meatball/http_req_dumps/http_req_dump.txt",
     "imageDimensions": "1024x1024",
+    "imageModel": "dall-e-3",
     "imageQuality": "standard",
+    "imageUrlDumpFile": "../electric_meatball/img_dumps/img_dump.json",
     "numberOfImagesToGenerate": 1,
-    "imageUrlDumpFile": "imgDump.txt"
+    "promptFileName": "user_prompt.txt",
+    "responseAnswerFileName": "../electric_meatball/gpt_answers/gpt_aswers.txt"
 }

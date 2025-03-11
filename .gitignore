@@ -4,5 +4,8 @@ EMConfig.json
 __pychache__/
 *.txt
 http_req_config.json
-gpt_chats/chat.json
+gpt_chats/**
+http_req_dumps/**
+img_dumps/**
+gpt_answers/**
 chat.json
