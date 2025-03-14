@@ -12,6 +12,7 @@ img_dumps = "img_dumps"
 
 file = open("user_prompt.txt", "w+")
 
+#Make the directories and files if they don't exist.
 os.makedirs(gpt_answers, exist_ok=True)
 file = open(gpt_answers + "/" + "gpt_answers.txt", "w+")
 

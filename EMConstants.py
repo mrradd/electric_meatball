@@ -1,4 +1,5 @@
 API_KEY = "api_key"
+CHAT_FILE_NAME = "chatFileName"
 CONTENT = "content"
 EM_CONFIG_FILE = "EMConfig.json"
 IMAGE_DIMENSIONS = "imageDimensions"

@@ -10,8 +10,8 @@
     "imageDimensions": "1024x1024",
     "imageModel": "dall-e-3",
     "imageQuality": "standard",
-    "imageUrlDumpFile": "../electric_meatball/img_dumps/img_dump.json",
+    "imageUrlDumpFile": "../electric_meatball/img_dumps/img_dump.txt",
     "numberOfImagesToGenerate": 1,
     "promptFileName": "user_prompt.txt",
-    "responseAnswerFileName": "../electric_meatball/gpt_answers/gpt_aswers.txt"
+    "responseAnswerFileName": "../electric_meatball/gpt_answers/gpt_answers.txt"
 }

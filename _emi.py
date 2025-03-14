@@ -24,12 +24,15 @@ def generate_image():
     quality=image_quality,
     n=number_of_images,
   )
+  
+  img_url = response.data[0].url
+  print(img_url)
 
   request_time = str(datetime.now())
   print("~Writing response to file, '" + answer_file_name + "'~")
   print("~"+ request_time +"~")
   prompt_text_to_save = "Prompt:\n------\n" + prompt + "\n\n--------\n"
-  answer_text_to_save = "Answer:\n------\n" + response.data[0].url
+  answer_text_to_save = "Answer:\n------\n" + img_url
   text_to_save = "\n------RESPONSE START------ "+ request_time +"\n" + prompt_text_to_save + answer_text_to_save + "\n------RESPONSE END------\n"
   all_text = text_to_save + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
   insertTextAtBeginningOfFile(answer_file_name, all_text)
