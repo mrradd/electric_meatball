@@ -24,7 +24,7 @@ def generate_image():
     quality=image_quality,
     n=number_of_images,
   )
-  
+
   img_url = response.data[0].url
   print(img_url)
 
