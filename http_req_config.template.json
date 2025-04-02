@@ -1,4 +1,5 @@
 {
+    "request_to_execute": "test_post",
     "data_dump_file_path": "../electric_meatball/http_req_dumps/http_data_req_dump.txt",
     "pretty_json_indent": 2,
     "test_post" : {

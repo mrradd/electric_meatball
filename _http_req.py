@@ -1,40 +1,33 @@
 from datetime import datetime
 import requests, json, sys
-from FileUtils import deserializeJsonFromFile, insertTextAtEndOfFile
-from http_req_constants import HTTP_REQ_CONFIG_FILE, BODY, URL, VERB, DATA_DUMP_FILE_PATH, PRETTY_JSON_INDENT, GET, POST
-
-#~~~Set this to the profile to run~~~
-profile_to_run = "test_post"
+from FileUtils import deserializeJsonFromFile, insertTextAtBeginningOfFile
+from http_req_constants import HTTP_REQ_CONFIG_FILE, BODY, REQUEST_TO_EXECUTE, URL, VERB
+from http_req_constants import DATA_DUMP_FILE_PATH, PRETTY_JSON_INDENT, GET, POST
 
 ###################################################################################################
 
-def do_http_request(config_profile_name):
+def do_http_request():
   """
   do_http_request
   ---
-  Performs an http request based on the specified configuration profile name in the config file,
-  `http_req_config.json`. The data from the response is appended to the file specified by the
-  config property, `data_dump_file_path`.
-  ---
-  params:
-    - `config_profile_name` (str): The name of the object in the configuration's json object to use
-    for the request.
+  Performs an http request based on the specified configuration's `request_to_execute` value in the
+  config file, `http_req_config.json`. The data from the response is appended to the file specified
+  by the config property, `data_dump_file_path`.
   """
   try:
     config_data = deserializeJsonFromFile(HTTP_REQ_CONFIG_FILE)
-
-    http_response = handle_request(config_data[config_profile_name])
-
+    req_to_exec = config_data[REQUEST_TO_EXECUTE]
+    http_response = handle_request(config_data[req_to_exec])
     file_path = config_data[DATA_DUMP_FILE_PATH]
-    request_delimiter = response_dump_delimiter(config_profile_name)
-
+    request_delimiter = response_dump_delimiter(req_to_exec)
     print(http_response.status_code)
-    insertTextAtEndOfFile(file_path, request_delimiter)
-    
+
     #This writes pretty printed json to the dump file.
-    insertTextAtEndOfFile(
+    insertTextAtBeginningOfFile(
       file_path, json.dumps(http_response.json(), indent=config_data[PRETTY_JSON_INDENT])
     )
+    insertTextAtBeginningOfFile(file_path, request_delimiter)
+
     print("Data written to [" + file_path +"]")
 
   except requests.exceptions.Timeout as e:
@@ -58,12 +51,12 @@ def handle_request(profile_object):
   ---
   Performs the http request based on the passed in `profile_object` that was read in from
   `http_req_config.json`.
-  ---
+  
   params:
     - `profile_object` (object): The object containing information about the request to 
     perform.
-  ---
-  returns: `string` - The response from the HTTP request.
+  
+  - returns: `string` - The response from the HTTP request.
   """
   http_response = ""
   try:
@@ -71,7 +64,7 @@ def handle_request(profile_object):
     verb = profile_object[VERB].lower()
     if verb == GET.lower():
       http_response = requests.get(url)
-    if verb == POST.lower():
+    elif verb == POST.lower():
       http_response = requests.post(url, None, profile_object[BODY])
     else:
       print("[" + verb + "] is not supported.\nExiting")
@@ -87,16 +80,17 @@ def response_dump_delimiter(config_profile_name):
   response_dump_delimiter
   ---
   Creates a delimiter for separating the request responses in the dump file.
-  ---
+
   params:
     - `config_profile_name` (string): Name of the profile the response if from.
     perform.
-  ---
-  returns: `string` - The delimiter to write to the file.
+  
+  - returns: `string` - The delimiter to write to the file in order to separate the requests for
+    better readablility.
   """
-  return "~~~~~~~~~~~~~~~~~~~~| " + config_profile_name + " | " + str(datetime.now()) + " |~~~~~~~~~~~~~~~~~~~~"
+  return "~~~~~~~~~~~~~~~~~~~~| Request Profile: `" + config_profile_name + "` | " + str(datetime.now()) + " |~~~~~~~~~~~~~~~~~~~~"
 
 ###################################################################################################
 
 #Do the thing.
-do_http_request(profile_to_run)
+do_http_request()
