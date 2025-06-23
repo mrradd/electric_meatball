@@ -43,7 +43,7 @@ def send_request_and_write_to_file():
     prompt_text_to_save = "Prompt:\n------\n" + prompt + "\n\n--------\n"
     answer_text_to_save = "Answer:\n------\n" + response.choices[0].message.content
     text_to_save = "\n------RESPONSE START------ "+ request_time +"\n" + prompt_text_to_save + answer_text_to_save + "\n------RESPONSE END------\n"
-    all_text = text_to_save + "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+    all_text = text_to_save + "---\n"
     insertTextAtBeginningOfFile(answer_file_name, all_text)
     return response
 
